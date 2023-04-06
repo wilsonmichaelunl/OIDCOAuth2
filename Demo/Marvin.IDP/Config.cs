@@ -7,7 +7,7 @@ public static class Config
 {
     public static IEnumerable<IdentityResource> IdentityResources =>
         new IdentityResource[]
-        { 
+        {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
             new IdentityResource("roles", "Your roles(s)", new []{ "role" }),
@@ -17,14 +17,14 @@ public static class Config
     public static IEnumerable<ApiResource> ApiResources =>
         new ApiResource[]
         {
-            new ApiResource("imagegalleryapi", "Image Gallery Api", 
+            new ApiResource("imagegalleryapi", "Image Gallery Api",
                 new [] { "role", "country" })
             {
                 Scopes = { "imagegalleryapi.fullaccess", "imagegalleryapi.read", "imagegalleryapi.write" },
                 ApiSecrets = { new Secret("apisecret".Sha256()) }
             }
         };
-    
+
     public static IEnumerable<ApiScope> ApiScopes =>
         new ApiScope[]
         {
@@ -69,7 +69,7 @@ public static class Config
                 {
                     new Secret("secret".Sha256())
                 },
-                RequireConsent = true
+                //RequireConsent = true
             }
         };
 }

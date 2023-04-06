@@ -7,7 +7,7 @@ namespace Marvin.IDP.DbContexts
     {
         public DbSet<User> Users { get; set; }
 
-        public DbSet<UserClaim> UserClaims { get; set; }         
+        public DbSet<UserClaim> UserClaims { get; set; }
 
         public IdentityDbContext(
           DbContextOptions<IdentityDbContext> options)
@@ -34,7 +34,8 @@ namespace Marvin.IDP.DbContexts
                     Password = "password",
                     Subject = "d860efca-22d9-47fd-8249-791ba61b07c7",
                     UserName = "David",
-                    Active = true
+                    Active = true,
+                    Email = "david@someprovider.com"
                 },
                 new User()
                 {
@@ -42,7 +43,8 @@ namespace Marvin.IDP.DbContexts
                     Password = "password",
                     Subject = "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
                     UserName = "Emma",
-                    Active = true
+                    Active = true,
+                    Email = "emma@someprovider.com"
                 });
 
             modelBuilder.Entity<UserClaim>().HasData(
@@ -59,7 +61,7 @@ namespace Marvin.IDP.DbContexts
                  UserId = new Guid("13229d33-99e0-41b3-b18d-4f72127e3971"),
                  Type = "family_name",
                  Value = "Flagg"
-             }, 
+             },
              new UserClaim()
              {
                  Id = Guid.NewGuid(),
@@ -87,14 +89,14 @@ namespace Marvin.IDP.DbContexts
                  UserId = new Guid("96053525-f4a5-47ee-855e-0ea77fa6c55a"),
                  Type = "family_name",
                  Value = "Flagg"
-             }, 
+             },
              new UserClaim()
              {
                  Id = Guid.NewGuid(),
                  UserId = new Guid("96053525-f4a5-47ee-855e-0ea77fa6c55a"),
                  Type = "country",
                  Value = "be"
-             }, 
+             },
              new UserClaim()
              {
                  Id = Guid.NewGuid(),
